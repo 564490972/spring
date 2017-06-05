@@ -21,4 +21,4 @@
         logabandoned="false"
         filters="stat"/>
         <!--上面这两条一定要做-->
-      2、
+      2、pom.xml里面的<build>节点一定要有
