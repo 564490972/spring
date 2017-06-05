@@ -14,24 +14,24 @@
   <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
     <property name="jndiName" value="${jndiValue}" />
   </bean>
-  <!-- 2   配置sessionfactory -->  
+  <!-- 1   配置sessionfactory -->
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
     <property name="dataSource" ref="dataSource" />
     <property name="configLocation" value="classpath:mybatisConfig.xml" />  
     <!-- 自动扫描mapping.xml文件 -->  
     <property name="mapperLocations" value="classpath:com/abead/db/mapper/*.xml"></property>  
   </bean>  
-  <!-- 5  装配dao接口 -->  
+  <!-- 2  装配dao接口 -->
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
     <property name="basePackage" value="com.abead.db.mapper" /> 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
     <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
   </bean>  
-  <!-- 6、声明式事务管理 -->  
+  <!-- 3、声明式事务管理 -->
   <bean id="transactionManager"  
     class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
     <property name="dataSource" ref="dataSource" />  
   </bean>  
-  <!-- 7、注解事务切面 --> 
+  <!-- 4、注解事务切面 -->
   <tx:annotation-driven transaction-manager="transactionManager"/> 
 </beans> 
