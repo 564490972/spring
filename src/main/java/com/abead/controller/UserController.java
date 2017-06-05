@@ -33,7 +33,7 @@ public class UserController {
     public List<LoginLog> testRequestParm(HttpServletRequest request, @RequestParam(value = "parm", required = false, defaultValue = "0") int pa) {
         System.out.println(request.getContextPath());
         System.out.println(pa);
-        return userService.selectAll();
+        return userService.select(pa);
     }
 
     @RequestMapping("/total")
