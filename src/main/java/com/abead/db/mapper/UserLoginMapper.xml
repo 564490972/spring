@@ -12,5 +12,13 @@
       <insert id="updateLog" parameterType="com.abead.model.LoginLog">
            insert into user_lg (ip,last_address,last_date) values (#{data.ip},#{data.lastAddress},#{data.lastDate});
       </insert>
+
+    <select id="select" parameterType="int" resultMap="logMap">
+        SELECT * from user_lg where id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="logMap">
+        SELECT * from user_lg
+    </select>
 </mapper>
 
