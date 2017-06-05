@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.abead.db.mapper.UserLoginMapper">
+      <resultMap type="com.abead.model.LoginLog" id="logMap">
+          <id column="id" property="id"/>
+          <result column="ip" property="ip"/>
+          <result column="last_address" property="lastAddress"/>
+          <result column="last_date" property="lastDate"/>
+     </resultMap>
+
+      <insert id="updateLog" parameterType="com.abead.model.LoginLog">
+           insert into user_lg (ip,last_address,last_date) values (#{data.ip},#{data.lastAddress},#{data.lastDate});
+      </insert>
+</mapper>
+
